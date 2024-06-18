@@ -1,3 +1,4 @@
+import 'package:covid_19_tracker_app/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,12 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData.dark(),
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const SplashScreen(),
     );
   }
 }
