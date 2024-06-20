@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:covid_19_tracker_app/views/world_stats.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
@@ -21,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     Timer(
       const Duration(seconds: 5),
-      () => Navigator.push(
+      () => Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) => const WorldStatsScreen(),
@@ -63,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen>
             height: MediaQuery.of(context).size.height * .09,
           ),
           const Align(
-            alignment: Alignment.center,
+            alignment: Alignment.bottomCenter,
             child: Text(
               'Covid-19\nTracker App',
               textAlign: TextAlign.center,

@@ -2,7 +2,6 @@ import 'package:covid_19_tracker_app/views/countries_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pie_chart/pie_chart.dart';
-
 import '../services/stats_services.dart';
 
 class WorldStatsScreen extends StatefulWidget {
@@ -41,7 +40,7 @@ class _WorldStatsScreenState extends State<WorldStatsScreen>
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height * .01),
+                SizedBox(height: MediaQuery.of(context).size.height * .05),
                 FutureBuilder(
                   future: statsServices.fetchWorldStats(),
                   builder:
