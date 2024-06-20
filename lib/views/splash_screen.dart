@@ -12,12 +12,14 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  late final AnimationController _controller =
-      AnimationController(duration: const Duration(seconds: 3), vsync: this)
-        ..repeat();
+  late final AnimationController _controller;
+
   @override
   void initState() {
     super.initState();
+    _controller =
+        AnimationController(duration: const Duration(seconds: 3), vsync: this)
+          ..repeat();
     Timer(
       const Duration(seconds: 5),
       () => Navigator.pushReplacement(
@@ -30,8 +32,8 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 
   @override

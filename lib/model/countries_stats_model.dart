@@ -2,6 +2,8 @@
 //
 //     final countriesStats = countriesStatsFromJson(jsonString);
 
+// ignore_for_file: constant_identifier_names
+
 import 'dart:convert';
 
 List<CountriesStats> countriesStatsFromJson(String str) =>

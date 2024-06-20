@@ -1,6 +1,6 @@
 import 'package:covid_19_tracker_app/views/countries_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+//import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pie_chart/pie_chart.dart';
 import '../services/stats_services.dart';
 
@@ -24,8 +24,8 @@ class _WorldStatsScreenState extends State<WorldStatsScreen>
   ];
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 
   StatsServices statsServices = StatsServices();
@@ -34,11 +34,12 @@ class _WorldStatsScreenState extends State<WorldStatsScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
+        child: Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * .05),
                 FutureBuilder(
@@ -46,11 +47,13 @@ class _WorldStatsScreenState extends State<WorldStatsScreen>
                   builder:
                       (context, AsyncSnapshot<Map<String, double>?> snapshot) {
                     if (!snapshot.hasData) {
-                      return SpinKitFadingCircle(
-                        color: Colors.black,
-                        size: 50.0,
-                        controller: _controller,
-                      );
+                      return const Center(child: CircularProgressIndicator()
+                          // SpinKitFadingCircle(
+                          //   color: Colors.black,
+                          //   size: 50.0,
+                          //   controller: _controller,
+                          // ),
+                          );
                     } else {
                       return Column(
                         children: [
@@ -149,6 +152,7 @@ class _WorldStatsScreenState extends State<WorldStatsScreen>
   }
 }
 
+// ignore: must_be_immutable
 class ResuableRow extends StatelessWidget {
   String title, value;
 
